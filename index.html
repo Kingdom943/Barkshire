@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Kingdom of Barkshire</title>
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+    margin:0;
+    background:#c8cfaa;
+    color:#202b18;
+    font-family:Georgia,"Times New Roman",serif;
+}
+.page{
+    max-width:1450px;
+    margin:0 auto;
+    min-height:100vh;
+    background:#e9e9ca;
+    border-left:3px solid #69724c;
+    border-right:3px solid #69724c;
+    box-shadow:0 0 24px rgba(35,48,24,.35);
+}
+.top{
+    height:34px;
+    background:#304d27;
+    color:#eeeccf;
+    border-bottom:2px solid #9a9d6c;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:13px;
+    letter-spacing:.4px;
+    white-space:nowrap;
+    overflow:hidden;
+}
+.header{
+    display:grid;
+    grid-template-columns:230px 1fr 470px;
+    min-height:220px;
+    border-bottom:2px solid #777d54;
+}
+.crest{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-right:2px solid #8b9068;
+    background:#dfe2bc;
+    position:relative;
+}
+.crest .shield{
+    font-size:100px;
+    filter:drop-shadow(2px 3px 1px #777);
+}
+.brand{
+    padding:20px 10px 10px;
+    text-align:center;
+    background:#e8e7c7;
+}
+.brand h1{
+    margin:12px 0 3px;
+    font-size:clamp(42px,5.5vw,82px);
+    line-height:.85;
+    letter-spacing:2px;
+    color:#163d21;
+    text-shadow:2px 2px #b8b98c;
+}
+.brand .kingdom{
+    font-size:27px;
+    font-weight:bold;
+}
+.brand .motto{
+    margin-top:7px;
+    font-size:19px;
+    font-weight:bold;
+}
+.royal{
+    border-left:2px solid #8b9068;
+    padding:15px;
+    text-align:center;
+    background:#dfe2bc;
+}
+.royal h2{
+    margin:0 0 7px;
+    font-size:23px;
+}
+.royal img{
+    width:225px;
+    height:190px;
+    object-fit:cover;
+    object-position:center;
+    border:3px solid #9e8b4b;
+    background:#eee;
+}
+.royal .name{
+    font-size:20px;
+    font-weight:bold;
+    margin-top:7px;
+}
+.royal .title{
+    font-size:16px;
+    line-height:1.15;
+}
+.royal img{
+    object-fit:cover;
+}
+.council-image-box{
+    width:100%;
+    border:2px solid #9c9e70;
+    background:#dadab8;
+    padding:6px;
+    overflow:hidden;
+}
+.council-image-box img{
+    display:block;
+    width:100%;
+    height:auto;
+    max-height:260px;
+    object-fit:cover;
+    border:1px solid #99966d;
+}
+.nav{
+    display:flex;
+    flex-direction:column;
+    gap:0;
+    padding:15px;
+    background:#dce0ba;
+    border-right:2px solid #858b61;
+}
+.nav a{
+    display:block;
+    background:#d7dbb4;
+    border:1px solid #899061;
+    border-radius:3px;
+    padding:10px 13px;
+    margin-bottom:5px;
+    font-size:17px;
+    font-weight:bold;
+    color:#18251a;
+    box-shadow:inset 0 1px rgba(255,255,255,.45);
+}
+.nav a.active,.nav a:hover{
+    background:#244f29;
+    color:white;
+}
+.mini{
+    border-top:2px solid #8b9068;
+    margin-top:12px;
+    padding-top:12px;
+    text-align:center;
+}
+.mini h3{
+    margin:0 0 7px;
+    font-size:18px;
+}
+.time{
+    background:#173c20;
+    color:#fff;
+    font-family:monospace;
+    padding:8px;
+    font-size:21px;
+    letter-spacing:2px;
+    border:2px solid #9c9d70;
+}
+.visitors{
+    margin-top:12px;
+    font-family:monospace;
+    font-size:18px;
+    letter-spacing:3px;
+    background:#f0efda;
+    border:1px solid #99966c;
+    padding:7px;
+}
+.layout{
+    display:grid;
+    grid-template-columns:230px 1fr 470px;
+    align-items:start;
+}
+.main{
+    padding:0 8px 14px;
+    background:#e8e7c7;
+}
+.hero{
+    padding:0;
+    background:#202e1d;
+    border:3px solid #9b8a4e;
+}
+.hero img{
+    width:100%;
+    display:block;
+    aspect-ratio:692/804;
+    object-fit:cover;
+}
+.section{
+    margin-top:12px;
+    padding:13px 16px;
+    border:1px solid #9a9b6f;
+    background:#e5e5c5;
+}
+.section h2{
+    margin:0 0 8px;
+    color:#183c20;
+    font-size:23px;
+}
+.right{
+    padding:0 15px 15px;
+    background:#dfe2bc;
+    border-left:2px solid #858b61;
+}
+.card{
+    border:2px solid #9c9e70;
+    background:#e9e8c8;
+    padding:14px;
+    margin-bottom:12px;
+}
+.card h2{
+    text-align:center;
+    margin:0 0 11px;
+    font-size:24px;
+}
+.laws{
+    margin:0;
+    padding-left:23px;
+}
+.laws li{
+    margin:8px 0;
+    font-size:16px;
+    font-weight:bold;
+}
+.laws li::marker{content:"✓  "}
+.discord{
+    display:block;
+    background:#174c27;
+    color:#fff;
+    padding:16px 12px;
+    text-align:center;
+    border:3px solid #a18d4d;
+    font-weight:bold;
+    font-size:20px;
+}
+.discord:hover{background:#28633a}
+.chickens{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:6px;
+}
+.chicken{
+    background:#dadab8;
+    border:1px solid #99966d;
+    text-align:center;
+    padding:4px;
+    font-size:11px;
+    font-weight:bold;
+}
+.chicken .emoji{
+    font-size:28px;
+    display:block;
+}
+footer{
+    grid-column:1/-1;
+    background:#294923;
+    color:#eeeccf;
+    border-top:3px solid #9c8d56;
+    text-align:center;
+    padding:10px;
+    font-weight:bold;
+}
+@media(max-width:1050px){
+    .header,.layout{grid-template-columns:190px 1fr}
+    .royal{display:none}
+    .right{border-left:2px solid #858b61}
+}
+@media(max-width:760px){
+    .header,.layout{display:block}
+    .crest{display:none}
+    .nav{border-right:0;border-bottom:2px solid #858b61}
+    .nav a{display:inline-block;width:48%;margin-right:1%}
+    .right{border-left:0;border-top:2px solid #858b61}
+    .brand h1{font-size:45px}
+}
+.discord-icon{
+    display:inline-flex;
+    width:28px;
+    height:28px;
+    margin-right:8px;
+    vertical-align:middle;
+    border-radius:5px;
+    overflow:hidden;
+    background:#fff;
+    border:1px solid rgba(255,255,255,.5);
+}
+.discord-icon img{
+    display:block;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.queen-image-box{
+    width:100%;
+    height:100%;
+    border:2px solid #9c9e70;
+    background:#dadab8;
+    padding:6px;
+    overflow:hidden;
+}
+.queen-image-box img{
+    display:block;
+    width:100%;
+    height:100%;
+    min-height:220px;
+    object-fit:cover;
+    border:1px solid #99966d;
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="top">♛ LONG LIVE THE QUEEN • PROTECTOR OF SNACKS • LEADER OF THE CHICKEN ARMY • BARKSHIRE ♛</div>
+
+<header class="header">
+    <div class="crest">
+        <div class="shield">👑<br>🐾</div>
+    </div>
+
+    <div class="brand">
+        <div class="kingdom">🐾 The Kingdom of 🐾</div>
+        <h1>BARKSHIRE</h1>
+        <div class="motto">Where loyalty, chaos, and snack privileges reign.</div>
+    </div>
+
+    <div class="royal" id="queen">
+        <div class="queen-image-box">
+            <img src="barkina.jpg" alt="Our Beloved Queen, Queen Barkina I">
+        </div>
+    </div>
+</header>
+
+<div class="layout">
+
+<aside class="nav">
+    <a class="active" href="#home">🏠 Home</a>
+    <a href="#queen">♟ The Queen</a>
+    <a href="#kingdom">♛ The Kingdom</a>
+    <a href="#laws">📜 Laws & Rules</a>
+    <a href="#subjects">🐾 Subjects</a>
+    <a href="#gallery">🖼 Gallery</a>
+    <a href="#council">🐔 Chicken Council</a>
+    <a href="#join">🐾 Join Us</a>
+    <a href="#join">💬 Discord</a>
+
+    <div class="mini">
+        <h3>🐾 Official Motto 🐾</h3>
+        <p><b>“Bark. Snack. Rule. Repeat.”</b></p>
+        <hr>
+        <h3>Current Time<br>in Barkshire</h3>
+        <div class="time" id="clock">--:--:--</div>
+        <div id="date" style="margin-top:5px">August 11, 2026</div>
+        <div class="visitors">001337</div>
+        <div>Good dogs and humans alike.</div>
+    </div>
+</aside>
+
+<main class="main" id="home">
+    <div class="hero">
+        <img src="main.jpg" alt="Queen Barkina I seated on the royal throne">
+    </div>
+
+    <section class="section" id="kingdom">
+        <h2>🏰 The Kingdom of Barkshire</h2>
+        <p>
+            A proud and slightly ridiculous kingdom dedicated to good dogs,
+            questionable royal decisions, snacks, naps, and the eternal rule of Queen Barkina I.
+        </p>
+        <p id="subjects">
+            Every citizen is expected to uphold the values of Barkshire:
+            loyalty, kindness, silliness, and never ignoring a suspiciously crinkly snack bag.
+        </p>
+    </section>
+
+    <section class="section" id="gallery">
+        <h2>🖼 Royal Gallery</h2>
+        <p>Portrait of Her Majesty in her original form:</p>
+        <img src="original-queen.png" alt="Original photo of the Barkshire Queen"
+             style="max-width:220px;width:100%;border:3px solid #9d8c50">
+    </section>
+</main>
+
+<aside class="right">
+
+    <section class="card" id="laws">
+        <h2>Laws of Barkshire 👑</h2>
+        <ol class="laws">
+            <li>All subjects must be loyal to the Queen.</li>
+            <li>Snacks are a basic human right.</li>
+            <li>Chickens are citizens. Do not question.</li>
+            <li>Act kind, silly, and chaotic.</li>
+            <li>Disobeying the Queen results in being bonked with a rubber chicken.</li>
+        </ol>
+    </section>
+
+    <section class="card" id="join">
+        <h2>Join the Kingdom! 🐾</h2>
+        <a class="discord" href="#" target="_blank" rel="noopener">
+            💬 Enter Barkshire Discord ↗
+        </a>
+        <p style="text-align:center"><i>The official kingdom server. Come join the chaos.</i></p>
+    </section>
+
+    <section class="card" id="council">
+        <h2>🐔 The Chicken Council (Very Important) 🐔</h2>
+        <div class="council-image-box">
+            <img src="chickencouncil.jpg" alt="The Barkshire Chicken Council">
+        </div>
+    </section>
+
+</aside>
+
+<footer>🐾 © Barkshire Royal Government • All rights reserved • Long live the Queen. 🐾</footer>
+</div>
+</div>
+
+<script>
+function updateClock(){
+    const d = new Date();
+    document.getElementById("clock").textContent =
+        d.toLocaleTimeString([], {hour:"2-digit", minute:"2-digit", second:"2-digit"});
+    document.getElementById("date").textContent =
+        d.toLocaleDateString([], {month:"long", day:"numeric", year:"numeric"});
+}
+updateClock();
+setInterval(updateClock,1000);
+</script>
+</body>
+</html>

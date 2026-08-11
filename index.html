@@ -102,9 +102,6 @@ body{
     font-size:16px;
     line-height:1.15;
 }
-.royal img{
-    object-fit:cover;
-}
 .council-image-box{
     width:100%;
     border:2px solid #9c9e70;
@@ -139,6 +136,7 @@ body{
     font-weight:bold;
     color:#18251a;
     box-shadow:inset 0 1px rgba(255,255,255,.45);
+    text-decoration:none;
 }
 .nav a.active,.nav a:hover{
     background:#244f29;
@@ -238,25 +236,9 @@ body{
     border:3px solid #a18d4d;
     font-weight:bold;
     font-size:20px;
+    text-decoration:none;
 }
 .discord:hover{background:#28633a}
-.chickens{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:6px;
-}
-.chicken{
-    background:#dadab8;
-    border:1px solid #99966d;
-    text-align:center;
-    padding:4px;
-    font-size:11px;
-    font-weight:bold;
-}
-.chicken .emoji{
-    font-size:28px;
-    display:block;
-}
 footer{
     grid-column:1/-1;
     background:#294923;
@@ -279,24 +261,6 @@ footer{
     .right{border-left:0;border-top:2px solid #858b61}
     .brand h1{font-size:45px}
 }
-.discord-icon{
-    display:inline-flex;
-    width:28px;
-    height:28px;
-    margin-right:8px;
-    vertical-align:middle;
-    border-radius:5px;
-    overflow:hidden;
-    background:#fff;
-    border:1px solid rgba(255,255,255,.5);
-}
-.discord-icon img{
-    display:block;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
-
 .queen-image-box{
     width:100%;
     height:100%;
@@ -349,7 +313,7 @@ footer{
     <a href="#gallery">🖼 Gallery</a>
     <a href="#council">🐔 Chicken Council</a>
     <a href="#join">🐾 Join Us</a>
-    <a href="#join">💬 Discord</a>
+    <a href="https://discord.gg/DDQszcFBaP" target="_blank" rel="noopener">💬 Discord</a>
 
     <div class="mini">
         <h3>🐾 Official Motto 🐾</h3>
@@ -403,7 +367,8 @@ footer{
 
     <section class="card" id="join">
         <h2>Join the Kingdom! 🐾</h2>
-        <a class="discord" href="#" target="_blank" rel="noopener">
+        <!-- Discord invite link updated below -->
+        <a class="discord" href="https://discord.gg/DDQszcFBaP" target="_blank" rel="noopener">
             💬 Enter Barkshire Discord ↗
         </a>
         <p style="text-align:center"><i>The official kingdom server. Come join the chaos.</i></p>
